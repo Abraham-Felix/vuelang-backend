@@ -1,0 +1,3 @@
+module vuelang-backend
+
+go 1.18
