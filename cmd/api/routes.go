@@ -2,9 +2,10 @@ package main
 
 // here we import the packages we will use similiar to node modules
 import (
-  "net/http"
-  "github.com/go-chi/chi/v5"
-  "github.com/go-chi/chi/v5/middleware"
+	"net/http"
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
+	"github.com/go-chi/cors"
 )
 
 // function bellow has the application as receiver
