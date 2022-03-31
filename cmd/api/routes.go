@@ -13,10 +13,19 @@ import (
 func (app *application) routes() http.Handler {
     mux := chi.NewRouter()
     mux.Use(middleware.Recoverer)
+    //cors handler from chi package setup
+    mux.Use(cors.Handler(cors.Options {
+      AllowedOrigins: []string{"http://*","https://*"},
+      AllowedMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+      AllowedHeaders: []string{"Acceppt", "Authorization", "Content-Type", "X-CSRF-Token"},
+      ExposedHeaders: []string{"Link"},
+      AllowCredentials: true,
+      MaxAge: 300,
+      }))
 
     //this for local
     mux.Get("/users/login", app.Login)
-    //this to post to front end 
+    //this to post to front end
     mux.Post("/users/login", app.Login)
 
     return mux
